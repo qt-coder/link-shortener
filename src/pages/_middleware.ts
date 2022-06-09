@@ -3,7 +3,7 @@ import { NextFetchEvent, NextRequest, NextResponse } from "next/server";
 
 export async function middleware(req: NextRequest, ev: NextFetchEvent) {
 
-    if (req.nextUrl.pathname.startsWith('/api/get-url/') || req.nextUrl.pathname.startsWith('/')) {
+    if (req.nextUrl.pathname.startsWith('/api/get-url/') || req.nextUrl.pathname === '/') {
         console.log('returning early')
         return
     }

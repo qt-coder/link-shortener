@@ -1,4 +1,4 @@
-import { prisma } from "../../db/client";
+import { prisma } from "../../../db/client";
 import { NextApiRequest, NextApiResponse } from "next";
 
 export default async (req: NextApiRequest, res: NextApiResponse) => {
@@ -29,6 +29,6 @@ export default async (req: NextApiRequest, res: NextApiResponse) => {
         return
     }
 
-    return res.redirect(data.url)
+    return res.json(data)
 
 }

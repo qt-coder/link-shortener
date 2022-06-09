@@ -52,7 +52,7 @@ const Home: NextPage = () => {
 
       <main className={styles.main}>
         <h1 className={styles.title}>
-          <a href="https://nextjs.org">Link</a> shortener
+          <a>Link</a> shortener
         </h1>
 
         <p className={styles.description}>

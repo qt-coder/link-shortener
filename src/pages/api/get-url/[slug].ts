@@ -3,6 +3,10 @@ import { NextApiRequest, NextApiResponse } from "next";
 
 export default async (req: NextApiRequest, res: NextApiResponse) => {
 
+    res.setHeader('Content-Type', 'application/json')
+    res.setHeader('Access-Control-Allow-Origin', '*')
+    res.setHeader('Cache-Control', 's-maxage=1000000000000, stale-while-revalidate')
+
     const slug = req.query['slug']
 
     if (!slug || typeof slug !== 'string') {
@@ -23,10 +27,6 @@ export default async (req: NextApiRequest, res: NextApiResponse) => {
 
     if (!data) {
         res.statusCode = 404
-
-        res.setHeader('Content-Type', 'application/json')
-        res.setHeader('Access-Control-Allow-Origin', '*')
-        res.setHeader('Cache-Control', 's-maxage=1000000000000, stale-while-revalidate')
 
         res.send(JSON.stringify({ message: 'slug not found' }))
 
